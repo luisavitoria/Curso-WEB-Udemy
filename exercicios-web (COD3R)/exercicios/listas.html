@@ -1,0 +1,74 @@
+<h1>Listas</h1>
+
+<!-- Lista Ordenada -->
+<h2>Aprovados</h2>
+<ol>
+    <li>Pedro</li>
+    <li>Ana</li>
+    <li>João</li>
+</ol>
+
+<!-- Lista Não Ordenada -->
+<h2>Lista de compras</h2>
+<ul>
+    <li>Queijo</li>
+    <li>Pão</li>
+    <li>Leite</li>
+</ul>
+
+<!-- Lista de Definições-->
+<h2>Principais termos do glossário de Cloud Computing</h2>
+<dl>
+    <dt>BaaS</dt>
+    <dd>Backend como serviço</dd>
+    <dt>IaaS</dt>
+    <dd>Infraestrutura como serviço</dd>
+</dl>
+
+<!-- Listas Aninhadas-->
+<h1>Projeto</h1>
+<ul class="tree">
+    <li>
+        <span wm-folder>Backend</span>
+        <ul>
+        <li>
+            <span wm-folder>app</span>
+            <ul>
+                <li>produto.js</li>
+                <li>usuario.js</li>
+                <li>venda.js</li>
+            </ul>
+        </li>
+        <li>
+            <span wm-folder>config</span>
+            <ul>
+                <li>banco.js</li>
+                <li>rotas.js</li>
+            </ul>
+        </li>
+        </ul>
+    </li>
+    <li>
+        <span wm-folder>Frontend</span>
+        <ul>
+        <li>
+            <span wm-folder>public</span>
+            <ul>
+                    <li>app.css</li>
+                    <li>app.js</li>
+                    <li>index.html</li>
+            </ul>
+        </li>
+        </ul>
+    </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script>
+    document.querySelectAll('[wm-folder]').forEach(folder => {
+        folder.onclick = function(e) {
+            const ul = folder.nextElementSibling
+            
+        }
+    });
+</script>
