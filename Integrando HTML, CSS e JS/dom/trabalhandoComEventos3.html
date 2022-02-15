@@ -50,15 +50,16 @@
         itens.forEach((item, index) => {
             item.draggable = true //draggable = arrastável
             item.id = item.id || `draggable-item-${index}`
-            item.ondragstart = e => {
-                e.dataTransfer.setData('item-id', e.target.id)
+            item.ondragstart = e => { //ondragstart é acionado quando começa a arrastar o elemento
+                e.dataTransfer.setData('item-id', e.target.id) //setData() determina os dados da operaçao: especifica qual tipo de dado e qual dado esta sendo arrastado
             }
         })
 
         const dropzones = document.querySelectorAll('[wm-dropzone]')
         dropzones.forEach(dropzone => {
-            dropzone.ondragover = e => e.preventDefault()
-            dropzone.ondrop = function(e) {
+            dropzone.ondragover = e => e.preventDefault() 
+            //ondragover especifica onde o elemento arrastável pode ser solto. Por padrão, os elementos nao podem ser soltos em outros elementos, por isso deve-se utilizar preventdefault()
+            dropzone.ondrop = function(e) { //quando o elemento é solto
                 const id = e.dataTransfer.getData('item-id')
                 const item = document.getElementById(id)
                // e.target.appendChild(item)
