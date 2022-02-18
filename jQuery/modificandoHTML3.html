@@ -12,7 +12,9 @@
     <h1>Modificando HTML #03</h1>
     <div id='conteudo'></div>
 
+
     <script>
+        $(document).ready(function () {
         const pessoas = [
             { nome: 'Ana', nota: 9.1 },
             { nome: 'Bianca', nota: 8.4 },
@@ -20,6 +22,25 @@
             { nome: 'Julia', nota: 9.7 }
         ]
         
-        // ...
+        //minha soluçao 
+        const tabela = $('<table>').css('border', "2px solid yellow")
+
+         $(pessoas).each((indice, elemento) => {
+            const linha = $(`<tr></tr>`)
+            const col = $(linha).append(`<td>${elemento.nome}</td>`)
+            const col2 = $(linha).append(`<td>${elemento.nota}</td>`)
+            $(tabela).append(linha)
+        })
+        $('#conteudo').append(tabela)
+
+        //solução do prof
+        const linhas = pessoas.map(p => {
+            const tdNome = $('<td>').html(p.nome)
+            const tdNota = $('<td>').html(p.nota)
+            return $('<tr>').append(tdNome, tdNota)
+        })
+        const tabela2 = $('<table>').append(linhas)
+        
+    })
     </script>
 </body>
